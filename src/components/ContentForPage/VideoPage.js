@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import CustomList from 'components/customList/CustomList';
-import {
-  LectureFrame,
+import {  
   ListSection,
   SwitchThemeButton,
   ThemeButton,
-  ThemeDiv1,
-  ThemeDiv2,
-  ThemeLink,
+  ThemeDiv1,  
 } from 'components/customList/customList.styled';
 import { CardBottomDiv, CardDiv, CardLink, CardMainDiv, CardTopDiv, StyledIconCard, TextBottom, TextConteiner, TextTop } from './contentPage.styled';
 import { GoMortarBoard } from "react-icons/go";
