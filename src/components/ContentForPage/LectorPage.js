@@ -34,6 +34,7 @@ const LecturePage = ({ topics }) => {
           window.gapi.auth2.getAuthInstance().signIn();
         });
       });
+      window.gapi.load('picker', () => {});
     };
 
     loadGoogleApi();
@@ -87,8 +88,7 @@ const LecturePage = ({ topics }) => {
       fields: 'webViewLink'
     }).then((response) => {
       const fileUrl = response.result.webViewLink;
-      setSelectedLectureId(null); // Очистимо вибраний документ, щоб оновити стан
-      setTimeout(() => setSelectedLectureId(fileUrl), 0); // Встановимо новий вибраний документ
+      setSelectedLectureUrl(fileUrl);
     });
   };
 
