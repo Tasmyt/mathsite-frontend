@@ -40,6 +40,7 @@ const LecturePage = ({ topics }) => {
   }, []);
 
   const handleClick = lectureId => {
+    createPicker();
     setSelectedLectureId(lectureId);
     if (openMenu) setTimeout(() => setOpenMenu(false), 50);
   };
