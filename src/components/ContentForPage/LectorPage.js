@@ -115,7 +115,7 @@ const LecturePage = ({ topics }) => {
         </ThemeDiv1>
 
         <ThemeDiv2>
-          {selectedLecture && (
+          {selectedLectureUrl && (
             <LectureFrame
               src={selectedLectureUrl}
               title="лекція"
