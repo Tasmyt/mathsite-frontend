@@ -17,7 +17,7 @@ const YOUR_CLIENT_ID = 'YOUR_CLIENT_ID';
 
 const LecturePage = ({ topics }) => {
   const { lectures } = useLectures();
-  const [selectedLectureId, setSelectedLectureId] = useState(null);
+  const [selectedLectureUrl, setSelectedLectureUrl] = useState(null);
   const [openMenu, setOpenMenu] = useState(true);
   const [openTopics, setOpenTopics] = useState({});
   const windowWidth = useWindowWidth();
@@ -40,9 +40,9 @@ const LecturePage = ({ topics }) => {
     loadGoogleApi();
   }, []);
 
-  const handleClick = lectureId => {
+  const handleClick = lecture => {
     createPicker();
-    setSelectedLectureId(lectureId);
+    setSelectedLectureUrl(lecture.url);
     if (openMenu) setTimeout(() => setOpenMenu(false), 50);
   };
 
@@ -119,7 +119,7 @@ const LecturePage = ({ topics }) => {
         <ThemeDiv2>
           {selectedLecture && (
             <LectureFrame
-              src={selectedLectureId}
+              src={selectedLectureUrl}
               title="лекція"
             ></LectureFrame>
           )}
