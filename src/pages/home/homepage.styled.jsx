@@ -5,7 +5,7 @@ export const HomeBackground = styled.section`
     padding: 0;
     height: 28.3vw;    
     background-repeat: no-repeat;
-    background-image: url("../../mathsite-frontend/images//home/backgroundHome.webp");
+    background-image: url("../../images//home/backgroundHome.webp");
     background-size: contain;
     
     @media (max-width: 576px) {

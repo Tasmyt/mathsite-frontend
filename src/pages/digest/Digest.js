@@ -17,7 +17,7 @@ export default function Digest() {
         <SectionDigest>
             <DigestH2>Критерії оцінювання</DigestH2>
             <CriteriaContainer> 
-            <CriteriaFrame  src='../../mathsite-frontend/criteria.html' title="Критерії оцінювання" allowFullScreen/>            
+            <CriteriaFrame  src='../../criteria.html' title="Критерії оцінювання" allowFullScreen/>            
             </CriteriaContainer>
         </SectionDigest>
         <SectionDigest>
@@ -33,7 +33,7 @@ export default function Digest() {
         <SectionDigest>
             <DigestH2>Корисні посилання</DigestH2>
             <CriteriaContainer>              
-                <CriteriaFrame  src='../../mathsite-frontend/usefulLinks.html' title="Корисні посилання" allowFullScreen/>              
+                <CriteriaFrame  src='../../usefulLinks.html' title="Корисні посилання" allowFullScreen/>              
             </CriteriaContainer>
         </SectionDigest>
     </>

@@ -20,7 +20,7 @@ export default function Mathematics1() {
         <div>
           {!outlet ? <>
                     <Div><p>Тут ви можете знайти теоретичний і практичний матеріал за темами 1 курсу математики.</p> 
-                    <Img src="../../mathsite-frontend/images/studying.webp" alt="Дівчина навчається"/>
+                    <Img src="../../images/studying.webp" alt="Дівчина навчається"/>
                     </Div>
                     </>
                      :

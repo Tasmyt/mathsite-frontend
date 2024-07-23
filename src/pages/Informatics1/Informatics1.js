@@ -18,7 +18,7 @@ export default function Informatics1() {
         <div>
           {!outlet ? <>
                     <Div><p>Тут ви можете знайти теоретичний матеріал за темами 1 курсу інформатики.</p> 
-                    <Img src="../../mathsite-frontend/images/studying.webp" alt="Дівчина навчається"/>
+                    <Img src="../../images/studying.webp" alt="Дівчина навчається"/>
                     </Div>
                     </>
                      :

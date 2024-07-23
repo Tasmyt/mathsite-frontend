@@ -7,7 +7,7 @@ position: relative;
 margin: 0 auto; 
 height: 100vh;
 background-repeat: no-repeat;
-background-image: url("../../mathsite-frontend/images/background-login.webp");
+background-image: url("../../images/background-login.webp");
 background-size: contain;
 
 @media (max-width: 912px) {
