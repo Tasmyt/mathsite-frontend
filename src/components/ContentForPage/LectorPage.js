@@ -52,9 +52,7 @@ const LecturePage = ({ topics }) => {
     </ThemeLink>
   );
 
-  const selectedLecture = lectures.find(
-    lecture => lecture._id === selectedLectureId
-  );
+  
 
   const handleToggleTopic = topic => {
     setOpenTopics(prevOpenTopics => ({
