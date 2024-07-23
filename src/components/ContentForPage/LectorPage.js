@@ -29,7 +29,7 @@ const LecturePage = ({ topics }) => {
           apiKey: YOUR_API_KEY,
           clientId: YOUR_CLIENT_ID,
           discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"],
-          scope: "https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata.readonly"
+          scope: "https://www.googleapis.com/auth/drive.file"
         }).then(() => {
           window.gapi.auth2.getAuthInstance().signIn();
         });
