@@ -19,7 +19,7 @@ const Textbooks = () => {
         {fileNames.map((fileName, index) => (
           <Li key={index} >
             <ViewerContainer className={fullscreen === index ? 'fullscreen' : ''} $fullscreen={fullscreen === index}>
-                <Frame id={`iframe-${index}`} src={'../../mathsite-frontend/textbooks/' + fileName} title={fileName} className={fullscreen === index ? 'fullscreen' : ''} />          
+                <Frame id={`iframe-${index}`} src={'../../textbooks/' + fileName} title={fileName} className={fullscreen === index ? 'fullscreen' : ''} />          
                 <Title>{fileName}</Title> 
                  <FullscreenButton onClick={() => toggleFullscreen(index)}>
                     {fullscreen === index ? 'Згорнути' : 'Розгорнути'}
