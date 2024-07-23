@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLectures } from '../../context/LecturesContext';
 import CustomList from 'components/customList/CustomList';
 import { renderTopicItem } from 'components/customList/renderTopicItem';
@@ -12,13 +12,33 @@ import {
 } from 'components/customList/customList.styled';
 import useWindowWidth from 'hooks/useWindowWidth';
 
+const YOUR_API_KEY = 'YOUR_API_KEY';
+const YOUR_CLIENT_ID = 'YOUR_CLIENT_ID';
+
 const LecturePage = ({ topics }) => {
-  
   const { lectures } = useLectures();
   const [selectedLectureId, setSelectedLectureId] = useState(null);
   const [openMenu, setOpenMenu] = useState(true);
   const [openTopics, setOpenTopics] = useState({});
   const windowWidth = useWindowWidth();
+
+  useEffect(() => {
+    const loadGoogleApi = () => {
+      window.gapi.load('client:auth2', () => {
+        window.gapi.client.init({
+          apiKey: YOUR_API_KEY,
+          clientId: YOUR_CLIENT_ID,
+          discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"],
+          scope: "https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata.readonly"
+        }).then(() => {
+          window.gapi.auth2.getAuthInstance().signIn();
+        });
+      });
+    };
+
+    loadGoogleApi();
+  }, []);
+
   const handleClick = lectureId => {
     setSelectedLectureId(lectureId);
     if (openMenu) setTimeout(() => setOpenMenu(false), 50);
@@ -29,6 +49,7 @@ const LecturePage = ({ topics }) => {
       {lecture.title}
     </ThemeLink>
   );
+
   const selectedLecture = lectures.find(
     lecture => lecture._id === selectedLectureId
   );
@@ -38,6 +59,36 @@ const LecturePage = ({ topics }) => {
       ...prevOpenTopics,
       [topic]: !prevOpenTopics[topic],
     }));
+  };
+
+  const createPicker = () => {
+    const oauthToken = window.gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().access_token;
+
+    const picker = new window.google.picker.PickerBuilder()
+      .addView(window.google.picker.ViewId.DOCS)
+      .setOAuthToken(oauthToken)
+      .setDeveloperKey(YOUR_API_KEY)
+      .setCallback(pickerCallback)
+      .build();
+    picker.setVisible(true);
+  };
+
+  const pickerCallback = (data) => {
+    if (data.action === window.google.picker.Action.PICKED) {
+      const fileId = data.docs[0].id;
+      loadFile(fileId);
+    }
+  };
+
+  const loadFile = (fileId) => {
+    window.gapi.client.drive.files.get({
+      fileId: fileId,
+      fields: 'webViewLink'
+    }).then((response) => {
+      const fileUrl = response.result.webViewLink;
+      setSelectedLectureId(null); // Очистимо вибраний документ, щоб оновити стан
+      setTimeout(() => setSelectedLectureId(fileUrl), 0); // Встановимо новий вибраний документ
+    });
   };
 
   return (
@@ -67,7 +118,7 @@ const LecturePage = ({ topics }) => {
         <ThemeDiv2>
           {selectedLecture && (
             <LectureFrame
-              src={selectedLecture.url}
+              src={selectedLectureId}
               title="лекція"
             ></LectureFrame>
           )}
@@ -75,5 +126,6 @@ const LecturePage = ({ topics }) => {
       </ListSection>
     </>
   );
-}
+};
+
 export default LecturePage;
