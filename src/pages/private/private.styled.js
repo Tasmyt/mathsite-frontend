@@ -8,14 +8,14 @@ export const PrivateBackground = styled.section`
   position: relative;
   margin: 0 auto;
   background-repeat: no-repeat;
-  background-image: url('../../mathsite-frontend/images/background-privat.webp');
+  background-image: url('../../images/background-privat.webp');
   background-size: cover;
 
   @media (max-width: 912px) {
     width: 90vw;
   }
   @media (max-width: 576px) {
-    background-image: url('../../mathsite-frontend/images/background-mobil.webp');
+    background-image: url('../../images/background-mobil.webp');
     height: calc(90vw * 1.55);
   }
 `;
