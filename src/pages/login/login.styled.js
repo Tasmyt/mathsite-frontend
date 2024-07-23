@@ -8,7 +8,7 @@ position: relative;
 margin: 0 auto; 
 height: 100%;
 background-repeat: no-repeat;
-background-image: url("../../mathsite-frontend/images/background-login.webp");
+background-image: url("../../images/background-login.webp");
 background-size: contain;
 `
 export const ContentWrapper = styled.div`  
