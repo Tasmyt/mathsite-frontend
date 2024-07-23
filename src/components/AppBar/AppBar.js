@@ -16,7 +16,7 @@ const AppBar = () => {
       <Nav>
         
           <div>
-            <Logo src="../../mathsite-frontend/images/logo.webp " alt="Логотип" />
+            <Logo src="../../images/logo.webp " alt="Логотип" />
           </div>
           <Panel>
             <Panel>
