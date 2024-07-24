@@ -23,7 +23,7 @@ export default function EstimateInf() {
                 
                 <EstimateUl >
             {estimate.map(({ _id, dateinf, estimateinf }) => {
-                
+                if (!estimateinf) return null;
                 return (
               <EstimateLi key={_id}>
                 <DateP>{dateinf}</DateP>
