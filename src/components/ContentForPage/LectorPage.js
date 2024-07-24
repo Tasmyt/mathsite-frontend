@@ -22,22 +22,31 @@ const LecturePage = ({ topics }) => {
   const windowWidth = useWindowWidth();
 
   useEffect(() => {
-    const loadGoogleApi = () => {
-      window.gapi.load('client:auth2', () => {
+    const initializeGoogleApi = () => {
+      window.gapi.load('client', () => {
         window.gapi.client.init({
           apiKey: YOUR_API_KEY,
-          clientId: YOUR_CLIENT_ID,
-          discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"],
-          scope: "https://www.googleapis.com/auth/drive.file"
+          discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"]
         }).then(() => {
-          window.gapi.auth2.getAuthInstance().signIn();
+          // API initialized successfully
         }).catch((error) => {
           console.error('Failed to initialize Google API:', error);
         });
       });
     };
 
-    loadGoogleApi();
+    const handleCredentialResponse = (response) => {
+      console.log('Encoded JWT ID token: ' + response.credential);
+      initializeGoogleApi();
+    };
+
+    window.google.accounts.id.initialize({
+      client_id: YOUR_CLIENT_ID,
+      callback: handleCredentialResponse
+    });
+
+    window.google.accounts.id.prompt(); // Display the One Tap prompt
+
   }, []);
 
   const handleClick = lecture => {
@@ -59,7 +68,7 @@ const LecturePage = ({ topics }) => {
   };
 
   const createPicker = () => {
-    const oauthToken = window.gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().access_token;
+    const oauthToken = window.gapi.auth.getToken().access_token;
 
     const picker = new window.google.picker.PickerBuilder()
       .addView(window.google.picker.ViewId.DOCS)
