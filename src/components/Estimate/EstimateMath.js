@@ -52,7 +52,7 @@ const navigate = useNavigate();
                           default:
                               textColor = 'inherit'; // Не змінювати колір
                       }
-
+                        if (!estimatemath) return null;
                       return (
                           <EstimateLi key={_id}>
                               <DateP>{datemath}</DateP>
@@ -63,6 +63,7 @@ const navigate = useNavigate();
                   })}
         </EstimateUl>
       </EstimateDiv>
+      
       <Semestr>
         <ResultDiv>
           <ResultP>Семестр</ResultP>

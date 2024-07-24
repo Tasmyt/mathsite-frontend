@@ -37,7 +37,8 @@ export default function EstimateInf() {
             })}
           </EstimateUl>
             </EstimateDiv>
-             <ResultDiv>
+             
+        <ResultDiv>
                 <ResultP>Семестр</ResultP>
                 <EstimateP>{averageinf}</EstimateP>
                 <TextP>бал</TextP>

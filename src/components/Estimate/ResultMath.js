@@ -22,15 +22,15 @@ export default function ResultMath() {
           <ResultH3>Пдсумкове оцінювання</ResultH3>
           <ResultSemestrDiv>
             <ResultUl >
-                  {semestr.map(({ _id, titlemath, estimatesemestrmath }) => (
-                                        
-                    <EstimateLi key={_id}>
-                        <DateP>{titlemath}</DateP>
-                        <EstimateP>{estimatesemestrmath}</EstimateP>
-                        <TextP>балів</TextP>
-                    </EstimateLi>                
+            {semestr.map(({ _id, titlemath, estimatesemestrmath }) => {
+              if (!estimatesemestrmath) return null;
+              <EstimateLi key={_id}>
+                <DateP>{titlemath}</DateP>
+                <EstimateP>{estimatesemestrmath}</EstimateP>
+                <TextP>балів</TextP>
+              </EstimateLi>
                   
-                  ))}
+            })}
             </ResultUl>
                 <ResultConteiner>
                     <ResultP>Підсумкова</ResultP>

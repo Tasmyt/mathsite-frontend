@@ -22,15 +22,15 @@ export default function ResultInf() {
           <ResultH3>Пдсумкове оцінювання</ResultH3>
           <ResultSemestrDiv>
             <ResultUl >
-                  {semestr.map(({ _id, titleinf, estimatesemestrinf }) => (
-                                        
-                    <EstimateLi key={_id}>
-                        <DateP>{titleinf}</DateP>
-                        <EstimateP>{estimatesemestrinf}</EstimateP>
-                        <TextP>балів</TextP>
-                    </EstimateLi>                
+            {semestr.map(({ _id, titleinf, estimatesemestrinf }) => {
+              if (!estimatesemestrinf) return null;
+              <EstimateLi key={_id}>
+                <DateP>{titleinf}</DateP>
+                <EstimateP>{estimatesemestrinf}</EstimateP>
+                <TextP>балів</TextP>
+              </EstimateLi>
                   
-                  ))}
+            })}
             </ResultUl>
                 <ResultConteiner>
                     <ResultP>Підсумкова</ResultP>
