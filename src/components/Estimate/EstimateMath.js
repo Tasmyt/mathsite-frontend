@@ -21,11 +21,12 @@ export default function EstimateMath() {
   const { user } = useAuth();
   const estimate = user.rating;
   const [average, setAverage] = useState(0);
+
   useEffect(() => {
     if (estimate && estimate.length > 0) {
       const estmath = estimate
         .map(est => est.estimatemath)
-        .filter(val => Number.isInteger(val));
+        ;
       const avg = calculateAverage(estmath);
       setAverage(avg);
     }
