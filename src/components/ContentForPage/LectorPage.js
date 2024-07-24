@@ -32,9 +32,11 @@ const LecturePage = ({ topics }) => {
           scope: "https://www.googleapis.com/auth/drive.file"
         }).then(() => {
           window.gapi.auth2.getAuthInstance().signIn();
+        }).catch((error) => {
+          console.error('Failed to initialize Google API:', error);
         });
       });
-      window.gapi.load('picker', () => {});
+      // window.gapi.load('picker', () => {});
     };
 
     loadGoogleApi();
@@ -73,10 +75,12 @@ const LecturePage = ({ topics }) => {
     picker.setVisible(true);
   };
 
-  const pickerCallback = (data) => {
-    if (data.action === window.google.picker.Action.PICKED) {
-      const fileId = data.docs[0].id;
+ const pickerCallback = (data) => {
+    if (data[window.google.picker.Response.ACTION] === window.google.picker.Action.PICKED) {
+      const fileId = data[window.google.picker.Response.DOCS][0].id;
       loadFile(fileId);
+    } else {
+      console.error('Picker action failed:', data);
     }
   };
 
@@ -87,6 +91,8 @@ const LecturePage = ({ topics }) => {
     }).then((response) => {
       const fileUrl = response.result.webViewLink;
       setSelectedLectureUrl(fileUrl);
+    }).catch(error => {
+      console.error('Failed to load file:', error);
     });
   };
 
@@ -119,7 +125,7 @@ const LecturePage = ({ topics }) => {
             <LectureFrame
               src={selectedLectureUrl}
               title="лекція"
-              sandbox="allow-same-origin"
+              sandbox="allow-scripts allow-same-origin"
             ></LectureFrame>
           )}
         </ThemeDiv2>
