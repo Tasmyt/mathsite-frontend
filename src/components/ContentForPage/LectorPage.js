@@ -125,7 +125,7 @@ const LecturePage = ({ topics }) => {
             <LectureFrame
               src={selectedLectureUrl}
               title="лекція"
-              sandbox="allow-scripts allow-same-origin"
+              
             ></LectureFrame>
           )}
         </ThemeDiv2>
