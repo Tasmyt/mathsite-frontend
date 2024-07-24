@@ -11,12 +11,12 @@ export default function EstimateInf() {
     useEffect(() => {
     if (estimate && estimate.length > 0) {
       const estinf = estimate
-        .map(est => est.estimateinf)
-        .filter(val => Number.isInteger(val));
+        .map(est => est.estimateinf);
       const avg = calculateAverage(estinf);
       setAverageinf(avg);
     }
-  }, [estimate]);
+    }, [estimate]);
+  
     return (
         <>
             <EstimateDiv>

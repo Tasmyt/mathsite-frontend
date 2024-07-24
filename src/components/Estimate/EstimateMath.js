@@ -25,12 +25,12 @@ export default function EstimateMath() {
   useEffect(() => {
     if (estimate && estimate.length > 0) {
       const estmath = estimate
-        .map(est => est.estimatemath)
-        ;
+        .map(est => est.estimatemath);
       const avg = calculateAverage(estmath);
       setAverage(avg);
     }
   }, [estimate]);
+
 const navigate = useNavigate();
    const handleButtonAddWork = () => {
     navigate('/addwork');
