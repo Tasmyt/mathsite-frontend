@@ -5,5 +5,5 @@ export function calculateAverage(arr) {
 
     const sum = numbers.reduce((acc, num) => acc + num, 0);
         const avg = sum / numbers.length;
-        return avg;
+        return Math.round(avg);
 }
