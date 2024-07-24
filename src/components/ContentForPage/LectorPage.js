@@ -12,8 +12,8 @@ import {
 } from 'components/customList/customList.styled';
 import useWindowWidth from 'hooks/useWindowWidth';
 
-const YOUR_API_KEY = process.env.YOUR_API_KEY;
-const YOUR_CLIENT_ID = process.env.YOUR_CLIENT_ID;
+const YOUR_API_KEY = process.env.REACT_APP_API_KEY;
+const YOUR_CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 
 const LecturePage = ({ topics }) => {
   const { lectures } = useLectures();
