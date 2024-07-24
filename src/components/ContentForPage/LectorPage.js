@@ -3,7 +3,6 @@ import { useLectures } from '../../context/LecturesContext';
 import CustomList from 'components/customList/CustomList';
 import { renderTopicItem } from 'components/customList/renderTopicItem';
 import {
-  LectureFrame,
   ListSection,
   SwitchThemeButton,
   ThemeDiv1,
@@ -17,7 +16,7 @@ const YOUR_CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 
 const LecturePage = ({ topics }) => {
   const { lectures } = useLectures();
-  const [selectedLectureUrl, setSelectedLectureUrl] = useState(null);
+  const [selectedLectureContent, setSelectedLectureContent] = useState(null);
   const [openMenu, setOpenMenu] = useState(true);
   const [openTopics, setOpenTopics] = useState({});
   const windowWidth = useWindowWidth();
@@ -36,7 +35,6 @@ const LecturePage = ({ topics }) => {
           console.error('Failed to initialize Google API:', error);
         });
       });
-      // window.gapi.load('picker', () => {});
     };
 
     loadGoogleApi();
@@ -44,17 +42,14 @@ const LecturePage = ({ topics }) => {
 
   const handleClick = lecture => {
     createPicker();
-    setSelectedLectureUrl(lecture.url);
     if (openMenu) setTimeout(() => setOpenMenu(false), 50);
   };
 
   const renderLectureItem = lecture => (
-    <ThemeLink to={`${lecture._id}`} onClick={() => handleClick(lecture._id)}>
+    <ThemeLink to={`${lecture._id}`} onClick={() => handleClick(lecture)}>
       {lecture.title}
     </ThemeLink>
   );
-
-  
 
   const handleToggleTopic = topic => {
     setOpenTopics(prevOpenTopics => ({
@@ -75,7 +70,7 @@ const LecturePage = ({ topics }) => {
     picker.setVisible(true);
   };
 
- const pickerCallback = (data) => {
+  const pickerCallback = (data) => {
     if (data[window.google.picker.Response.ACTION] === window.google.picker.Action.PICKED) {
       const fileId = data[window.google.picker.Response.DOCS][0].id;
       loadFile(fileId);
@@ -85,12 +80,12 @@ const LecturePage = ({ topics }) => {
   };
 
   const loadFile = (fileId) => {
-    window.gapi.client.drive.files.get({
+    window.gapi.client.drive.files.export({
       fileId: fileId,
-      fields: 'webViewLink'
+      mimeType: 'text/plain'
     }).then((response) => {
-      const fileUrl = response.result.webViewLink;
-      setSelectedLectureUrl(fileUrl);
+      const fileContent = response.body;
+      setSelectedLectureContent(fileContent);
     }).catch(error => {
       console.error('Failed to load file:', error);
     });
@@ -107,7 +102,7 @@ const LecturePage = ({ topics }) => {
       <ListSection>
         <ThemeDiv1 $isopenmenu={openMenu}>
           <CustomList
-            items={ topics }
+            items={topics}
             renderItem={topic =>
               renderTopicItem(
                 topic,
@@ -121,12 +116,8 @@ const LecturePage = ({ topics }) => {
         </ThemeDiv1>
 
         <ThemeDiv2>
-          {selectedLectureUrl && (
-            <LectureFrame
-              src={selectedLectureUrl}
-              title="лекція"
-              
-            ></LectureFrame>
+          {selectedLectureContent && (
+            <div>{selectedLectureContent}</div>
           )}
         </ThemeDiv2>
       </ListSection>
