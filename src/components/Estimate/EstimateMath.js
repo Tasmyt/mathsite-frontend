@@ -69,7 +69,7 @@ const navigate = useNavigate();
         <ResultDiv>
           <ResultP>Семестр</ResultP>
           <EstimateP >{average}</EstimateP>
-          <TextP>бал</TextP>
+          <TextP>балів</TextP>
         </ResultDiv>
         {/* <Semestr> */}
         <Add>У тебе є можливість зробити додаткову роботу </Add>

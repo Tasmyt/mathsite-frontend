@@ -41,7 +41,7 @@ export default function EstimateInf() {
         <ResultDiv>
                 <ResultP>Семестр</ResultP>
                 <EstimateP>{averageinf}</EstimateP>
-                <TextP>бал</TextP>
+                <TextP>балів</TextP>
             </ResultDiv>
         </>
     );
