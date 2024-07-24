@@ -24,12 +24,13 @@ export default function ResultInf() {
             <ResultUl >
             {semestr.map(({ _id, titleinf, estimatesemestrinf }) => {
               if (!estimatesemestrinf) return null;
-              <EstimateLi key={_id}>
-                <DateP>{titleinf}</DateP>
-                <EstimateP>{estimatesemestrinf}</EstimateP>
-                <TextP>балів</TextP>
-              </EstimateLi>
-                  
+              return (
+                <EstimateLi key={_id}>
+                  <DateP>{titleinf}</DateP>
+                  <EstimateP>{estimatesemestrinf}</EstimateP>
+                  <TextP>балів</TextP>
+                </EstimateLi>
+              ); 
             })}
             </ResultUl>
                 <ResultConteiner>
