@@ -20,21 +20,22 @@ export default function EstimateInf() {
     return (
         <>
             <EstimateDiv>
-                {estimate.map(({ _id, dateinf, estimateinf }) => (
-                <EstimateUl key={_id}>
                 
-                { estimateinf ? (
-                    <>
-                    <EstimateLi >
-                    <DateP>{dateinf}</DateP>
-                    <EstimateP>{estimateinf}</EstimateP>
-                    <TextP>балів</TextP>
-                    </EstimateLi>
-                    </>) : null
-                }
+                <EstimateUl >
+            {estimate.map(({ _id, dateinf, estimateinf }) => {
                 
-                </EstimateUl>
-            ))}
+                return (
+              <EstimateLi key={_id}>
+                <DateP>{dateinf}</DateP>
+                <EstimateP>{estimateinf}</EstimateP>
+                <TextP>балів</TextP>
+              </EstimateLi>
+                    
+               ); 
+                
+                
+            })}
+          </EstimateUl>
             </EstimateDiv>
              <ResultDiv>
                 <ResultP>Семестр</ResultP>
