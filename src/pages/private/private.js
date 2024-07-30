@@ -8,7 +8,7 @@ import ResultInf from "components/Estimate/ResultInf";
 
 export default function Private() { 
     const { user } = useAuth();
-    // console.log( user.rating );
+    ;
     return (
     <>
         <PrivateBackground> 

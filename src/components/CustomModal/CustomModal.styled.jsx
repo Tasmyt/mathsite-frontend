@@ -91,7 +91,7 @@ export const StyledContent = styled.div`
   text-align: center;
   width: 100%;
   max-width: 80rem;
-  height: 90%;
+  height: 90%;  
   padding: 60px 20px 50px 20px;
   background-color: ${colors.snow};
   border-radius: 30px;
@@ -99,6 +99,7 @@ export const StyledContent = styled.div`
   /* transform: translateY(50px);
   transition: transform 0.3s; */
   animation: ${({ $isClosing }) => ($isClosing ? slideOut : slideIn)} 0.3s forwards;
+  
 
   @media (max-width: 576px) {
     padding: 12px;  

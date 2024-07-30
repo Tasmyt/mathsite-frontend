@@ -13,13 +13,17 @@ const dispatch = useDispatch();
         const searchParams = new URLSearchParams(window.location.search);
         const accessTokenParam = searchParams.get('accessToken');
         const userEmailParam = searchParams.get('email');
-                
+               
         if (accessTokenParam && userEmailParam) {
+
+            localStorage.setItem('accessToken', accessTokenParam);
+
             dispatch(logIn({
                 accessToken: accessTokenParam,
                 email: userEmailParam,
             }));
         }
+       
     }, [dispatch]);
 
     const { user } = useAuth();

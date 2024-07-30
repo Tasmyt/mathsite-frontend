@@ -22,6 +22,10 @@ import LecturePageInf1 from 'pages/Informatics1/LecturePageInf1';
 import VideoPageInf1 from 'pages/Informatics1/VideoPageInf1';
 import LecturePageInf2 from 'pages/informatics2/LecturePageInf2';
 import VideoPageInf2 from 'pages/informatics2/VideoPageInf2';
+import CourseBasedRoute from './CourseBasedRoute';
+import AdminTable from './AdminTable';
+import MathAdmin from 'pages/private/MathAdmin';
+import InfAdmin from 'pages/private/InfAdmin';
 
 const HomePage = lazy(() => import('pages/home/HomePage'));
 const Digest = lazy(() => import('pages/digest/Digest'));
@@ -29,7 +33,6 @@ const Mathematics1 = lazy(() => import('pages/mathematics1/Mathematics1'));
 const Mathematics2 = lazy(() => import('pages/mathematics2/Mathematics2'));
 const Informatics1 = lazy(() => import('pages/Informatics1/Informatics1'));
 const Informatics2 = lazy(() => import('pages/informatics2/Informatics2'));
-const PrivatePage = lazy(() => import('pages/private/private'));
 const PrivateWork = lazy(() => import('pages/private/addWork'));
 const WorkRequirements = lazy(() => import('pages/private/WorkRequirements'));
 const WorkTheme = lazy(() => import('pages/private/WorkTheme'));
@@ -37,7 +40,7 @@ const WorkExplanation = lazy(() => import('pages/private/WorkExplanation'));
 
 export default function App() {
   const dispatch = useDispatch();
-  const { isRefreshing } = useAuth();
+  const { isRefreshing } = useAuth();  
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -161,9 +164,15 @@ export default function App() {
           <Route
             path="/private"
             element={
-              <PrivateRoute redirectTo="/login" component={<PrivatePage />} />
-            }
-          />
+              <PrivateRoute redirectTo="/login" component={<CourseBasedRoute />}></PrivateRoute>  
+              }>
+              <Route path="math" element={<MathAdmin />}>
+                <Route path=":adminId" element={<AdminTable date="datemath" estimate="estimatemath"/>}></Route> 
+              </Route>
+              <Route path="inf" element={<InfAdmin />}>
+                <Route path=":adminId" element={<AdminTable date="dateinf" estimate="estimateinf"/>}></Route> 
+              </Route>              
+          </Route>
 
           <Route path="/addwork" element={<PrivateWork />}>
             <Route path="requirements" element={<WorkRequirements />} />

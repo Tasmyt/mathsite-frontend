@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { logIn, logOut, refreshUser } from './operations';
 
 const initialState = {
-  user: { name: null, email: null, rating: [], semestr: [] },  
+  user: { name: null, email: null, course: null, rating: [], semestr: [], },  
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
@@ -19,6 +19,7 @@ const authSlice = createSlice({
         state.user.semestr = action.payload.semestr;
         state.user.name = action.payload.username;
         state.user.email = action.payload.email;
+        state.user.course = action.payload.course;
         state.token = action.payload.accessToken;
         state.isLoggedIn = true;
       })
@@ -35,6 +36,7 @@ const authSlice = createSlice({
         state.user.semestr = action.payload.semestr;
         state.user.name = action.payload.username;
         state.user.email = action.payload.email;
+        state.user.course = action.payload.course;
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })

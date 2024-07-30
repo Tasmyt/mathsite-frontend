@@ -18,7 +18,7 @@ export const logIn = createAsyncThunk(
       setAuthHeader(accessToken);
       const res = await axios.get('/api/auth/current');        
       
-      console.log(res.data);
+      // console.log(res.data);
       return res.data;
       
     } catch (error) {

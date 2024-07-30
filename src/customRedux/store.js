@@ -13,6 +13,8 @@ import storage from 'redux-persist/lib/storage';
 
 import { authReducer } from './auth/slice';
 
+import { adminSlice } from './admin/adminSlice';
+
 // Persisting token field from auth slice to localstorage
 const authPersistConfig = {
   key: 'auth',
@@ -23,14 +25,15 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    
+    [adminSlice.reducerPath]: adminSlice.reducer,
   },
+
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }).concat([adminSlice.middleware]),
   
 });
 
