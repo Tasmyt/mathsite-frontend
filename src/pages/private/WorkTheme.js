@@ -21,52 +21,52 @@ const modalContent = [
     {
         title: "Числові функції.",
         content: <Theme1/>,
-        months: [9],
+        months: [8],
     },
     {
         title: "Степені та корені.",
         content: <Theme2/>,
-        months: [10],
+        months: [9],
     },
     {
         title: "Показникова і логарифмічна функції.",
         content: <Theme3/>,
-        months: [11],
+        months: [10],
     },
     {
         title: "Тригонометрія.",
         content: <Theme4/>,
-        months: [2, 3],
+        months: [1, 2],
     },
     {
         title: "Теорія ймовірності.",
         content: <Theme5/>,
-        months: [4],
+        months: [3],
     },
     {
         title: "Геометрія у просторі.",
         content: <Theme6/>,
-        months: [5],
+        months: [4],
     },
     {
         title: "Похідна.",
         content: <Theme7/>,
-        months: [9],
+        months: [8],
     },
     {
         title: "Інтеграл.",
         content: <Theme8/>,
-        months: [10, 11],
+        months: [9, 10],
     },
     {
         title: "Многогранники.",
         content: <Theme9/>,
-        months: [12],
+        months: [11],
     },
     {
         title: "Фігури обертання.",
         content: <Theme10/>,
-        months: [1,2],
+        months: [0,1],
     },
     
 ]
