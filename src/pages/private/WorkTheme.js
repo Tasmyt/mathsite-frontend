@@ -104,8 +104,8 @@ export default function WorkTheme() {
                                 <DivLine $isCurrentMonth={isCurrentMonth}>
                                     <ButtonCurrentMonth
                                         $isCurrentMonth={isCurrentMonth}
-                                        
-                                        onClick={() => currentMonth === isCurrentMonth && openModal(index)}
+                                        onClick={() => isCurrentMonth && openModal(index)}
+                                        // onClick={() => currentMonth === isCurrentMonth && openModal(index)}
                                     >
                                         Теми робіт тут <GoLog />
                                     </ButtonCurrentMonth>
