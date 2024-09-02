@@ -96,16 +96,14 @@ export default function WorkTheme() {
                 <ol> 
                     {modalContent.map((modal, index) => {
                         const isCurrentMonth = modal.months.includes(currentMonth);
-                        console.log(currentMonth);
-                        console.log(isCurrentMonth);
+                        
                         return (
                             <ListCurrentMonth key={index} $isCurrentMonth={isCurrentMonth}>
                                 {modal.title}
                                 <DivLine $isCurrentMonth={isCurrentMonth}>
                                     <ButtonCurrentMonth
                                         $isCurrentMonth={isCurrentMonth}
-                                        onClick={() => isCurrentMonth && openModal(index)}
-                                        // onClick={() => currentMonth === isCurrentMonth && openModal(index)}
+                                        onClick={() => isCurrentMonth && openModal(index)}                                        
                                     >
                                         Теми робіт тут <GoLog />
                                     </ButtonCurrentMonth>
