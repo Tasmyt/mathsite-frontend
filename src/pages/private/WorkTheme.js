@@ -96,6 +96,8 @@ export default function WorkTheme() {
                 <ol> 
                     {modalContent.map((modal, index) => {
                         const isCurrentMonth = modal.months.includes(currentMonth);
+                        console.log(currentMonth);
+                        console.log(isCurrentMonth);
                         return (
                             <ListCurrentMonth key={index} $isCurrentMonth={isCurrentMonth}>
                                 {modal.title}
