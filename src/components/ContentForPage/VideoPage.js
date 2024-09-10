@@ -64,7 +64,7 @@ const VideoPage = ({ topics }) => {
           />
         </ThemeDiv1>
 
-        <CardMainDiv> <p>Контент з'явиться незабаром</p>
+        <CardMainDiv> 
             {selectedVideos.map(video => renderVideoItem(video))}
         </CardMainDiv>
 

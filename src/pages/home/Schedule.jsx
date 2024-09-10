@@ -53,7 +53,7 @@ const Schedule = () => {
               <td> 2 М, Цж (інф)</td>
               <td> 2 ВТЗ, Ет (мат)</td>
               <td> </td>
-            </tr>
+          </tr>          
             <tr>
               <th> 16:20 - 17:40</th>
               <td> </td>
