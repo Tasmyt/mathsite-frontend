@@ -15,12 +15,11 @@ export default function AddVideo() {
         const formData = new FormData(e.currentTarget);
         const name = formData.get("name");
         const title = formData.get("title");
-        const url = formData.get("url");
-      const description = formData.get("description");
+        const url = formData.get("url");      
 
         const token = localStorage.getItem('accessToken');
         try {
-      const result = await addVideo({ name, title, url, description, token }).unwrap();
+      const result = await addVideo({ name, title, url, token }).unwrap();
       console.log('Video added:', result);
       if (formRef.current) {
         formRef.current.reset(); // Очистка форми після успішного додавання студента
@@ -42,9 +41,7 @@ export default function AddVideo() {
             <LabelForm> url відео
               <InputForm name="url" type="text" placeholder="url відео" required />    
             </LabelForm>
-            <LabelForm> опис відео
-              <InputForm name="description" type="text" placeholder="опис відео" required />    
-            </LabelForm>
+            
               <ButtonForm type="submit">Додати відео</ButtonForm>
         </StyledForm>
 
