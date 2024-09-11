@@ -41,6 +41,9 @@ export default function AddVideo() {
             <LabelForm> url відео
               <InputForm name="url" type="text" placeholder="url відео" required />    
             </LabelForm>
+            <LabelForm> опис відео
+              <InputForm name="description" type="text" placeholder="опис відео" required />    
+            </LabelForm>
               <ButtonForm type="submit">Додати відео</ButtonForm>
         </StyledForm>
 
