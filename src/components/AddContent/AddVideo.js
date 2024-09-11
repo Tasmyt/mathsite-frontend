@@ -16,10 +16,11 @@ export default function AddVideo() {
         const name = formData.get("name");
         const title = formData.get("title");
         const url = formData.get("url");
+      const description = formData.get("description");
 
         const token = localStorage.getItem('accessToken');
         try {
-      const result = await addVideo({ name, title, url, token }).unwrap();
+      const result = await addVideo({ name, title, url, description, token }).unwrap();
       console.log('Video added:', result);
       if (formRef.current) {
         formRef.current.reset(); // Очистка форми після успішного додавання студента
