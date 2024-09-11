@@ -71,12 +71,11 @@ export const adminSlice = createApi({
     }),
 
     addVideo: builder.mutation({
-      query: ({ name, title, url, 
- }) => {
+      query: ({ name, title, url, }) => {
         return {
           url: `/video`,
           method: 'POST',
-          body: { name, title, url,  },          
+          body: { name, title, url  },          
         };
       },      
     }),
