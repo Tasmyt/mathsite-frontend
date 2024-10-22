@@ -26,12 +26,12 @@ const modalContent = [
     {
         title: "Степені та корені.",
         content: <Theme2/>,
-        months: [9],
+        months: [9, 10],
     },
     {
         title: "Показникова і логарифмічна функції.",
         content: <Theme3/>,
-        months: [10],
+        months: [0],
     },
     {
         title: "Тригонометрія.",
