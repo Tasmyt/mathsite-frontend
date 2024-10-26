@@ -2,7 +2,7 @@ import React from 'react';
 import VideoPage from '../../components/ContentForPage/VideoPage';
 
 const topicsInf2 = [
-    'Про сайти',
+    'Створення проекту',
     'Алгоритми', 
     'Програмування', 
 ];
