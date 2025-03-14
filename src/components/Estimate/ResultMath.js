@@ -19,7 +19,7 @@ export default function ResultMath() {
     
     return (
         <>
-          <ResultH3>Пдсумкове оцінювання</ResultH3>
+          <ResultH3>Підсумкове оцінювання</ResultH3>
           <ResultSemestrDiv>
             <ResultUl >
             {semestr.map(({ _id, titlemath, estimatesemestrmath }) => {
