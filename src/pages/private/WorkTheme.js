@@ -41,7 +41,7 @@ const modalContent = [
     {
         title: "Теорія ймовірності.",
         content: <Theme5/>,
-        months: [4],
+        months: [5],
     },
     {
         title: "Геометрія у просторі.",
