@@ -36,17 +36,17 @@ const modalContent = [
     {
         title: "Тригонометрія.",
         content: <Theme4/>,
-        months: [1, 2],
+        months: [1, 2, 3, 4],
     },
     {
         title: "Теорія ймовірності.",
         content: <Theme5/>,
-        months: [3],
+        months: [4],
     },
     {
         title: "Геометрія у просторі.",
         content: <Theme6/>,
-        months: [4],
+        months: [5],
     },
     {
         title: "Похідна.",
