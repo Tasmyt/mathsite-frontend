@@ -47,7 +47,7 @@ export const AdminButton = styled.button`
   }   
 `
 export const AdminLink = styled(NavLink)`
-  margin-right: 16px;
+  margin-right: 12px;
   text-decoration: none;
   border-radius: 12px;
   padding: 4px 16px;  
