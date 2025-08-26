@@ -50,7 +50,7 @@ export const AdminLink = styled(NavLink)`
   margin-right: 12px;
   text-decoration: none;
   border-radius: 12px;
-  padding: 4px 16px;  
+  padding: 4px 4px;  
   border: 1px solid ${colors.outline};
   background: ${colors.snow};
   color: ${colors.black};
