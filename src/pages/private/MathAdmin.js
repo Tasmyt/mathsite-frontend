@@ -23,6 +23,7 @@ export default function MathAdmin() {
     '2 ОСКД',
     '2 ЕН',
     '2 АВМ',
+    '2 КХ',
   ]; 
 
   return (
