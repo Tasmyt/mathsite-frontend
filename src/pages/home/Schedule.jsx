@@ -59,7 +59,7 @@ const Schedule = () => {
               <td> ВТЗ, НХ-24 (мат)</td>
               <td> </td>
               <td> </td>
-              <td>  (мат)</td>
+              <td> </td>
               <td> НХ-24 (інф)</td>
             </tr>
         </tbody>
